@@ -24,37 +24,69 @@ public class MyPanelClass extends JPanel {
          int height = y2 - y1;
 
          //Paint the background
-         g.setColor(Color.ORANGE);
+         g.setColor(Color.GRAY);
          g.fillRect(x1, y1, width + 1, height + 1);
          
          //Draw a border
-         g.setColor(Color.YELLOW);
+         g.setColor(Color.BLACK);
          g.drawRect(x1, y1, width, height);
          
-         //Draw second border
-         g.setColor(Color.GREEN);
-         g.drawRect(x1 + 5, y1 + 5, width - 10, height - 10);
-        
-         //Draw line
+         
+         //Draw first red line.
+         Polygon line1 = new Polygon();
+         g.setColor(Color.RED);
+         line1.addPoint(x1, height / 5);
+         line1.addPoint(x2, height / 5);
+         line1.addPoint(x2, y1);
+         line1.addPoint(x1, y1);
+         g.fillPolygon(line1);
+         
+       //Draw first white line.
+         Polygon line2 = new Polygon();
          g.setColor(Color.WHITE);
-         g.drawLine(x1, y1, x2, y2);
-         g.setColor(Color.BLACK);
-         g.drawLine(x1, y2, x2, y1);
+         line2.addPoint(x1, (height / 5) * 2);
+         line2.addPoint(x2, (height / 5) * 2);
+         line2.addPoint(x2, height / 5);
+         line2.addPoint(x1, height / 5);
+         g.fillPolygon(line2);
          
-         g.setColor(Color.LIGHT_GRAY);
-         g.fillOval((width - 55) / 2, (height - 55) / 2, 55, 55);
+       //Draw second red line.
+         Polygon line3 = new Polygon();
+         g.setColor(Color.RED);
+         line3.addPoint(x2, (height / 5) * 3);
+         line3.addPoint(x2, (height / 5) * 2);
+         line3.addPoint(x1, (height / 5) * 2);
+         line3.addPoint(x1, (height / 5) * 3);
+         g.fillPolygon(line3);
          
-//         Polygon p = new Polygon();
-//         p.addPoint(x1 + 5, y1 + 25);
-//         p.addPoint(x1 + 20, y1 + 10);
-//         p.addPoint(x1 + 35, y1 + 25);
-//         p.addPoint(x1 + 25, y1 + 25);
-//         p.addPoint(x1 + 25, y1 + 45);
-//         p.addPoint(x1 + 15, y1 + 45);
-//         p.addPoint(x1 + 15, y1 + 25);
-//         g.setColor(Color.YELLOW);
-//         g.fillPolygon(p);
+       //Draw second white line.
+         Polygon line4 = new Polygon();
+         g.setColor(Color.WHITE);
+         line4.addPoint(x1, (height / 5) * 4);
+         line4.addPoint(x2, (height / 5) * 4);
+         line4.addPoint(x2, (height / 5) * 3);
+         line4.addPoint(x1, (height / 5) * 3);
+         g.fillPolygon(line4);
          
+         //Draw third red line.
+         Polygon line5 = new Polygon();
+         g.setColor(Color.RED);
+         line5.addPoint(x1, (height / 5) * 5);
+         line5.addPoint(x2, (height / 5) * 5);
+         line5.addPoint(x2, (height / 5) * 4);
+         line5.addPoint(x1, (height / 5) * 4);
+         g.fillPolygon(line5);
+         
+                  
+         // Draw triangle of the flag.
+         Polygon p = new Polygon();
+         g.setColor(Color.BLUE);
+         p.addPoint(x1, y1);
+         p.addPoint(width / 2, height / 2);
+         p.addPoint(x1, y2);
+         g.fillPolygon(p);
+
+         // Draw star
          Polygon p2 = new Polygon();
          p2.addPoint(x1 + 25, y1 + 73);
          p2.addPoint(x1 + 41, y1 + 73);
@@ -67,7 +99,7 @@ public class MyPanelClass extends JPanel {
          p2.addPoint(x1 + 34, y1 + 98);
          p2.addPoint(x1 + 38, y1 + 83);
          g.setColor(Color.WHITE);
-         g.drawPolygon(p2);
+         g.fillPolygon(p2);
          
      }
 
